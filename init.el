@@ -82,3 +82,9 @@
    '(progn
       (require 'tern-auto-complete)
       (tern-ac-setup)))
+
+;;; popup (required by auto-complete)
+(require 'popup)
+;;; auto complete mod
+(require 'auto-complete-config)
+(ac-config-default)
