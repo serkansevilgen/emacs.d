@@ -75,16 +75,40 @@
 ;; electric pair minor mode for emacs24 autopair braces, brackets etc
 (electric-pair-mode 1)
 
-;; Tern code completion
-(add-to-list 'load-path "~/.emacs.d")
-(add-hook 'js-mode-hook (lambda () (tern-mode t)))
-(eval-after-load 'tern
-   '(progn
-      (require 'tern-auto-complete)
-      (tern-ac-setup)))
-
 ;;; popup (required by auto-complete)
 (require 'popup)
 ;;; auto complete mod
 (require 'auto-complete-config)
 (ac-config-default)
+
+;;; Tern.js
+(add-to-list 'load-path "~/.emacs.d/")
+(autoload 'tern-mode "tern.el" nil t)
+
+(add-hook 'js2-mode-hook (lambda () (tern-mode t)))
+(eval-after-load 'tern
+   '(progn
+      (require 'tern-auto-complete)
+      (tern-ac-setup)))
+
+;;YASnippet
+(add-to-list 'load-path
+              "~/.emacs.d/yasnippet")
+(require 'yasnippet)
+(yas-global-mode 1)
+
+;; Flymake
+;;(require 'flymake)
+(add-hook 'find-file-hook 'flymake-find-file-hook)
+(add-to-list 'load-path "~/.emacs.d/jshint-mode")
+(require 'flymake-jshint)
+(add-hook 'js-mode-hook
+     (lambda () (flymake-mode t)))
+
+;; enhancements for displaying flymake errors
+(require 'flymake-cursor)
+
+;; flymake error and warning faces 
+(custom-set-faces 
+ '(flymake-errline ((t (:background "DarkRed")))) 
+ '(flymake-warnline ((((class color)) (:background "DarkBlue"))))) 
