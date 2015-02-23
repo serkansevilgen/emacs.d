@@ -75,6 +75,9 @@
 ;; electric pair minor mode for emacs24 autopair braces, brackets etc
 (electric-pair-mode 1)
 
+;; Show matching parenthesis
+(show-paren-mode 1)
+
 ;;; popup (required by auto-complete)
 (require 'popup)
 ;;; auto complete mod
