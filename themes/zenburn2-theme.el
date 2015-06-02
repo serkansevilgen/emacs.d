@@ -31,7 +31,7 @@
 
 ;;; Code:
 
-(deftheme zenburn "The Zenburn color theme")
+(deftheme zenburn2 "The Zenburn color theme")
 
 ;;; Color Palette
 
@@ -41,8 +41,8 @@
     ("zenburn-fg-1"     . "#656555")
     ("zenburn-bg-2"     . "#000000")
     ("zenburn-bg-1"     . "#2B2B2B")
-    ("zenburn-bg-05"    . "#1C1B1B")
-    ("zenburn-bg"       . "#1C1B1B")
+    ("zenburn-bg-05"    . "#383838")
+    ("zenburn-bg"       . "#2B2B2B")
     ("zenburn-bg+05"    . "#494949")
     ("zenburn-bg+1"     . "#4F4F4F")
     ("zenburn-bg+2"     . "#5F5F5F")
