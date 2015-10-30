@@ -9,6 +9,16 @@
   (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
 (package-initialize) ;; You might already have this line
 
+;; prevent cursor auto-recentering
+(setq scroll-step 1)
+(setq scroll-conservatively 10000)
+(setq auto-window-vscroll nil)
+
+;; 
+(global-set-key (kbd "M-n")
+    (lambda () (interactive) (next-line 5)))
+(global-set-key (kbd "M-p")
+    (lambda () (interactive) (previous-line 5)))
 
 ;; Color Theme
 (add-to-list 'load-path "~/.emacs.d/color-theme-6.6.0")
@@ -16,7 +26,8 @@
 (eval-after-load "color-theme"
   '(progn
      (color-theme-initialize)
-     (color-theme-clarity)))
+     ;;(color-theme-clarity)))
+     (color-theme-charcoal-black)))
 
 ;; Highlight Hex Colors
 (defun xah-syntax-color-hex ()
@@ -66,6 +77,7 @@
 
 (setq web-mode-enable-current-element-highlight t)
 (setq web-mode-enable-current-column-highlight t)
+(set-face-attribute 'web-mode-current-element-highlight-face t :background "#5C2C5B")
 
 ;; Javascript mode 
 (setq js-indent-level 2) ;; indent 2 instead of 4
@@ -81,10 +93,14 @@
 (require 'js2-mode)
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
 
-(custom-set-variables  
- '(js2-basic-offset 2)  
- '(js2-bounce-indent-p t)  
-)
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(js2-basic-offset 2)
+ '(js2-bounce-indent-p t)
+ '(send-mail-function (quote sendmail-send-it)))
 
 ;; electric pair minor mode for emacs24 autopair braces, brackets etc
 (electric-pair-mode 1)
@@ -126,9 +142,14 @@
 (require 'flymake-cursor)
 
 ;; flymake error and warning faces 
-(custom-set-faces 
- '(flymake-errline ((t (:background "DarkRed")))) 
- '(flymake-warnline ((((class color)) (:background "DarkBlue"))))) 
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(flymake-errline ((t (:background "DarkRed"))))
+ '(flymake-warnline ((((class color)) (:background "DarkBlue")))))
+ 
 
 ;; js-comint
 (require 'js-comint)
