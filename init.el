@@ -126,7 +126,7 @@
 
 ;;YASnippet
 (add-to-list 'load-path
-              "~/.emacs.d/yasnippet")
+              "~/.emacs.d/elpa/yasnippet-20151021.1539")
 (require 'yasnippet)
 (yas-global-mode 1)
 
