@@ -79,14 +79,18 @@
 (setq web-mode-enable-current-column-highlight t)
 (set-face-attribute 'web-mode-current-element-highlight-face t :background "#5C2C5B")
 
+;;PHP mode
+(add-to-list 'load-path "~/.emacs.d/elpa/php-mode-20151002.2030")
+(require 'php-mode)
+
 ;; Javascript mode 
 (setq js-indent-level 2) ;; indent 2 instead of 4
 
 ;; Jshint
-;(add-to-list 'load-path "~/.emacs.d/jshint-mode")
-;(require 'flymake-jshint)
-;(add-hook 'javascript-mode-hook
-;     (lambda () (flymake-mode t)))
+;; (add-to-list 'load-path "~/.emacs.d/jshint-mode")
+;; (require 'flymake-jshint)
+;; (add-hook 'javascript-mode-hook
+;;     (lambda () (flymake-mode t)))
 
 ;; js2-mode
 (add-to-list 'load-path "~/.emacs.d/js2-mode")
@@ -128,7 +132,13 @@
 (add-to-list 'load-path
               "~/.emacs.d/elpa/yasnippet-20151021.1539")
 (require 'yasnippet)
+(add-hook 'web-mode-hook #'(lambda () (yas-activate-extra-mode 'html-mode)))
+(add-hook 'js2-mode-hook #'(lambda () (yas-activate-extra-mode 'js-mode)))
+(setq yas-snippet-dirs
+      '("~/.emacs.d/elpa/yasnippet-20151021.1539/snippets" ;; original snippets
+        ))
 (yas-global-mode 1)
+(yas-reload-all 1)
 
 ;; Flymake
 ;;(require 'flymake)
