@@ -1,5 +1,5 @@
-(add-to-list 'load-path "~/.emacs.d")
-
+;;(add-to-list 'load-path "~/.emacs.d")
+(add-to-list 'load-path (expand-file-name "~/.emacs.d/lisp"))
 ;; Melpa package manager
 (require 'package) ;; You might already have this line
 (add-to-list 'package-archives
@@ -119,7 +119,7 @@
 (ac-config-default)
 
 ;;; Tern.js
-(add-to-list 'load-path "~/.emacs.d/")
+;;(add-to-list 'load-path "~/.emacs.d/")
 (autoload 'tern-mode "tern.el" nil t)
 
 (add-hook 'js2-mode-hook (lambda () (tern-mode t)))
